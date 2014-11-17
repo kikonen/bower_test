@@ -1,0 +1,11 @@
+---
+angular:
+  files:
+    - angular.js
+angular-ui-bootstrap:
+  build:
+    - npm install
+    - grunt html2js
+    - grunt build
+  files:
+    - dist/ui-bootstrap-tpls-{{VERSION}}.js

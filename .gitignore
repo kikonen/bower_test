@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 
+node_modules/
 vendor/assets/bower_components/
