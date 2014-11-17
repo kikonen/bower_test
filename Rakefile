@@ -43,9 +43,13 @@ task :vendor do
     puts "  copying..."
     asset_data['files'].each do |orig_path|
       src_path = orig_path.gsub("{{VERSION}}", version)
+      has_version = orig_path != src_path
       src_file = src_path.split('/').last
       ext = src_file.split('.').last
-      dst_file = src_file.gsub("\.#{ext}", "-#{version}.#{ext}")
+      dst_file = src_file
+      unless has_version
+        dst_file = src_file.gsub("\.#{ext}", "-#{version}.#{ext}")
+      end
 
       base_dst_dir = dst_dirs[ext]
       dst_dir = "#{base_dst_dir}/#{asset_key}"
